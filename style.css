@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(185deg, rgb(59, 106, 106), rgb(92, 48, 131));
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.wrapper{
+    width: 90vh;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6rem;
+    border: 1px dotted #ccc;
+    margin: 1rem;
+    border-radius: 2rem;
+}
+.header{
+    color: #bfb5b5;
+}
+.input-number{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 6rem;
+}
+#number{
+    padding: 0.9rem 4rem;
+    border: 2px solid #bfb5b5;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 3rem;
+    color: #fff;
+    font-weight: 700;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+}
+#number:hover{
+    color: #fff;
+    border: 2px solid #fff;
+    background: none;
+}
+::placeholder{
+    color: #ccc;
+}
+#noti{
+    color: #bfb5b5;
+    font-weight: 600;
+    font-size: 15px;
+    position: relative;
+    top: 2.5rem;
+}
+.buttons-div{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    margin-top: 1rem;
+}
+.btn-gen-clear{
+    margin: 0 5px;
+    border: 2px solid #bfb5b5;
+    cursor: pointer;
+    padding: 0.7rem 1.7rem;
+    font-size: 1rem;
+    color: #bfb5b5;
+    font-weight: 600;
+    border-radius: 2rem;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    transition: 0.4s ease;
+}
+.last-div{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+}
+
+#downloadButton{
+    border: 2px solid #bfb5b5;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.7rem 1.7rem;
+    font-size: 1rem;
+    color: #bfb5b5;
+    border-radius: 2rem;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    margin-top: 1.5rem;
+    display: none;
+}
+#downloadButton:hover{
+    color: #fff;
+    border: 2px solid #fff;
+    background: none;
+}
+
+#para{
+    color: #fff;
+}
+.btn:hover{
+    color: #fff;
+    border: 2px solid #fff;
+    background: none;
+}
+
+@media all and (max-width:620px){
+    .wrapper{
+        width: 90%;
+        max-width: 95vw;
+    }
+    .buttons-div{
+        flex-direction: column;
+        gap: 0.6rem;
+        margin-top: 2rem;
+    }
+    #number{
+        padding: 0.9rem 3rem;
+    }
+    .last-div{
+        margin-top: 4rem;
+        width: 90%;
+        max-width: 95vw;
+    }
+}

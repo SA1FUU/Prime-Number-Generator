@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS File -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="img/png" href="https://tse2.mm.bing.net/th?id=OIP.O0_2l4kA8kWbgtlKVCsEmgAAAA&pid=Api&P=0&h=180">
+    <title>Prime Number Generator</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h2 class="header">Generate Prime Numbers</h2>
+        <div class="input-number">
+            <input type="text" id="number" placeholder="Enter a Number" autofocus />
+            <p id="noti"></p>
+        </div>
+        <div class="buttons-div">
+            <button id="generatePrimes" class="btn-gen-clear btn" onclick="generatePrimes()">Generate Primes</button>
+            <button class="btn-gen-clear btn" id="clear-btn">Clear</button>
+        </div>
+        <div class="last-div">
+            <h4 id="para"></h4>
+            <button class="btn" id="downloadButton">Save as Text File</button>
+        </div>
+    </div>
+    <!-- JavaScript File -->
+    <script src="./script.js"></script>
+</body>
+</html>
