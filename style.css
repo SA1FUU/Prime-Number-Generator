@@ -5,16 +5,17 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    height: 100vh;
     width: 100%;
     background: linear-gradient(185deg, rgb(59, 106, 106), rgb(92, 48, 131));
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 .wrapper{
     width: 90vh;
     max-width: 60%;
+    min-height: 95vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,7 +102,7 @@ body{
     border-radius: 2rem;
     background: transparent;
     backdrop-filter: blur(5px);
-    margin-top: 1.5rem;
+    margin: 1.5rem 0;
     display: none;
 }
 #downloadButton:hover{
@@ -117,6 +118,12 @@ body{
     color: #fff;
     border: 2px solid #fff;
     background: none;
+}
+
+#prime-para{
+    color: #bfb5b5;
+    font-weight: 600;
+    display: none;
 }
 
 @media all and (max-width:620px){
@@ -137,4 +144,33 @@ body{
         width: 90%;
         max-width: 95vw;
     }
+}
+
+/* Footer */
+
+.footer-card{
+    width: 65%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(65deg, rgb(138, 68, 200), rgb(133, 176, 176));
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+}
+.footer-card a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-card a h5:hover{
+    color: #00feba;
+}
+
+section{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
 }
