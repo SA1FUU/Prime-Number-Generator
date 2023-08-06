@@ -7,6 +7,7 @@ let input = document.querySelector("input")
 
 clearBtn.addEventListener("click", () => {
     document.getElementById("downloadButton").style.display = "none"
+    document.querySelector("section").style.visibility = "hidden"
     input.value = ""
     para.innerText = ""
     noti.innerText = ""
@@ -59,17 +60,19 @@ function generatePrimes() {
     }
 
     if (primes.length > 0) {
-        para.innerText = "Prime numbers up to " +  inputNumber +  " are :  " + primes.join(", ")
+        para.innerText = "Prime Numbers Found Upto  " + userInput + " are  :  " + primes.join(", ")
         document.getElementById("downloadButton").style.display = "block"
         noti.innerText = ""
     } else {
-        para.innerText = "No prime numbers found up to " + inputNumber
+        para.innerText = "No prime number found up to " + inputNumber
         noti.innerText = ""
     }
+    document.querySelector("section").style.visibility = "visible"
 
 }
 
 document.getElementById("downloadButton").addEventListener("click", function () {
+
     var textContent = document.querySelector("#para").innerHTML
 
     var blob = new Blob([textContent], { type: "text/plain" });
@@ -84,8 +87,9 @@ document.getElementById("downloadButton").addEventListener("click", function () 
     downloadLink.click();
 });
 
+
 input.addEventListener("keypress", function (event) {
-if (event.key === "Enter") {
-document.getElementById("generatePrimes").click();
-}
+    if (event.key === "Enter") {
+        document.getElementById("generatePrimes").click();
+    }
 });
