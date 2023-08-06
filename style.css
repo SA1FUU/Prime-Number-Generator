@@ -120,12 +120,6 @@ body{
     background: none;
 }
 
-#prime-para{
-    color: #bfb5b5;
-    font-weight: 600;
-    display: none;
-}
-
 @media all and (max-width:620px){
     .wrapper{
         width: 90%;
