@@ -20,21 +20,26 @@ body{
     flex-direction: column;
     align-items: center;
     padding-top: 6rem;
-    border: 1px dotted #ccc;
+    border: 1px dotted #bfb5b5;
     margin: 1rem;
     border-radius: 2rem;
 }
 .header{
     color: #bfb5b5;
+    margin-bottom: 2rem;
 }
 .input-number{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 6rem;
+    height: 10rem;
 }
-#number{
+.h5{
+    color: #bfb5b5;
+    margin-bottom: 0.5rem;
+}
+#number1, #number2{
     padding: 0.9rem 4rem;
     border: 2px solid #bfb5b5;
     outline: none;
@@ -45,9 +50,9 @@ body{
     background: transparent;
     backdrop-filter: blur(5px);
     font-family: 'Poppins', sans-serif;
-    position: absolute;
+    margin: 10px;
 }
-#number:hover{
+#number1:hover, #number2:hover{
     color: #fff;
     border: 2px solid #fff;
     background: none;
@@ -60,7 +65,8 @@ body{
     font-weight: 600;
     font-size: 15px;
     position: relative;
-    top: 2.5rem;
+    top: 1rem;
+    margin-bottom: 15px;
 }
 .buttons-div{
     width: 80%;
@@ -68,7 +74,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 3rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 .btn-gen-clear{
     margin: 0 5px;
@@ -110,9 +116,15 @@ body{
     border: 2px solid #fff;
     background: none;
 }
-
 #para{
+    color: #bfb5b5;
+    text-align: center;
+    margin: 0 1rem;
+}
+#para-primes{
+    margin-bottom: 10px;
     color: #fff;
+    text-align: center;
 }
 .btn:hover{
     color: #fff;
@@ -120,7 +132,13 @@ body{
     background: none;
 }
 
-@media all and (max-width:620px){
+#prime-para{
+    color: #bfb5b5;
+    font-weight: 600;
+    display: none;
+}
+
+@media all and (max-width:650px){
     .wrapper{
         width: 90%;
         max-width: 95vw;
@@ -130,8 +148,20 @@ body{
         gap: 0.6rem;
         margin-top: 2rem;
     }
-    #number{
-        padding: 0.9rem 3rem;
+    #number1, #number2{
+        padding: 0.8rem 2.5rem;
+    }
+    .input-number{
+        text-align: center;
+    }
+    .h5{
+        margin: 0 10px;
+    }
+    .buttons-div{
+        margin-top: 4rem;
+    }
+    #noti{
+        text-align: center;
     }
     .last-div{
         margin-top: 4rem;
