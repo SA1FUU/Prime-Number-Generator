@@ -1,9 +1,14 @@
-const noti = document.querySelector("#noti")
+let noti = document.querySelector("#noti")
 let para = document.getElementById("para")
+let paraPrimes = document.getElementById("para-primes")
 
 let clearBtn = document.getElementById("clear-btn")
-let input = document.querySelector("input")
+let downloadBtn = document.getElementById("downloadButton")
+let input1 = document.querySelector("#number1")
+let input2 = document.querySelector("#number2")
 
+let sourceCode = document.querySelector('section')
+let body = document.querySelector('body')
 
 // Defining Prime Number
 
@@ -24,53 +29,89 @@ function isPrime(num) {
 // For Validating the Input and Generating the Prime Number for the Value Provided
 // Also for Adding and Removing Few Elements or Their Contents Accordingly 
 
+const startInput = document.getElementById('number1');
+const endInput = document.getElementById('number2');
+
 function generatePrimes() {
-    const userInput = document.getElementById("number").value;
-    const inputNumber = Number(userInput);
+    const errorMessage = document.getElementById('noti');
+    const primeOutput = document.getElementById('para');
 
-    if (isNaN(inputNumber)) {
-        noti.innerText = "Please enter a valid number"
+    const start = parseInt(startInput.value);
+    const end = parseInt(endInput.value);
+
+
+
+    if (isNaN(start) || isNaN(end)) {
+        errorMessage.innerText = "Enter a Valid Number"
         // Custom
-        document.querySelector("section").style.visibility = "hidden"
-        document.getElementById("downloadButton").style.display = "none"
-        para.innerText = ""
-        return;
+        sourceCode.style.visibility = "hidden"
+        downloadBtn.style.display = "none"
+        paraPrimes.innerText = ""
+        primeOutput.innerText = ""
+        return
     }
 
-    if (!Number.isInteger(inputNumber) || inputNumber < 0) {
-        noti.innerText = "Please enter a positive integer."
-        //  Custom
-        document.querySelector("section").style.visibility = "hidden"
-        document.getElementById("downloadButton").style.display = "none"
-        para.innerText = ""
-        return;
-    }
-
-    if (inputNumber > 9999999999) {
-        noti.innerText = "The number should be up to 10 digits."
+    if(start > end) {
+        errorMessage.innerText = "FIrst Number Should be Less than Second Number"
         // Custom
-        document.querySelector("section").style.visibility = "hidden"
-        document.getElementById("downloadButton").style.display = "none"
-        para.innerText = ""
+        sourceCode.style.visibility = "hidden"
+        downloadBtn.style.display = "none"
+        paraPrimes.innerText = ""
+        primeOutput.innerText = ""
+        return
+    }
+
+    if (!Number.isInteger(start) || start < 0) {
+        errorMessage.innerText = "Please enter a positive integer."
+         // Custom
+         sourceCode.style.visibility = "hidden"
+         downloadBtn.style.display = "none"
+         paraPrimes.innerText = ""
+         primeOutput.innerText = ""
         return;
     }
 
-    const primes = [];
-    for (let i = 2; i <= inputNumber; i++) {
-        if (isPrime(i)) {
-            primes.push(i);
+    if (!Number.isInteger(end) || end < 0) {
+        errorMessage.innerText = "Please enter a positive integer."
+         // Custom
+         sourceCode.style.visibility = "hidden"
+         downloadBtn.style.display = "none"
+         paraPrimes.innerText = ""
+         primeOutput.innerText = ""
+        return;
+    }
+
+    if (start > 9999999999 || end > 9999999999) {
+        errorMessage.innerText = "Number should be up to 10 digits."
+         // Custom
+         document.querySelector("section").style.visibility = "hidden"
+         downloadBtn.style.display = "none"
+         paraPrimes.innerText = ""
+         primeOutput.innerText = ""
+        return;
+    }
+    
+    else {
+        const primes = [];
+        for (let num = start; num <= end; num++) {
+            if (isPrime(num)) {
+                primes.push(num);
+            }
+
+            if (primes.length > 0) {
+                paraPrimes.innerText = "Prime Numbers Found Between  " + start + " and " + end + " Are  "
+                primeOutput.innerText =   primes.join(", ")
+                errorMessage.innerText = ""
+            } 
+            else {
+                primeOutput.innerText = "No prime number found between " + start + " and " + end
+                errorMessage.innerText = ""
+            }
         }
     }
-
-    if (primes.length > 0) {
-        para.innerText = "Prime Numbers Found Upto  " + userInput + " are  :  " + primes.join(", ")
-        document.getElementById("downloadButton").style.display = "block"
-        noti.innerText = ""
-    } else {
-        para.innerText = "No prime number found for  " + userInput
-        noti.innerText = ""
-    }
+   
     document.querySelector("section").style.visibility = "visible"
+    downloadBtn.style.display = "block"
 
 }
 
@@ -80,9 +121,11 @@ function generatePrimes() {
 clearBtn.addEventListener("click", () => {
     document.getElementById("downloadButton").style.display = "none"
     document.querySelector("section").style.visibility = "hidden"
-    input.value = ""
+    input1.value = ""
+    input2.value = ""
     para.innerText = ""
     noti.innerText = ""
+    paraPrimes.innerText = ""
 })
 
 
@@ -91,7 +134,7 @@ clearBtn.addEventListener("click", () => {
 
 document.getElementById("downloadButton").addEventListener("click", function () {
 
-    var textContent = document.querySelector("#para").innerHTML
+    var textContent =  document.querySelector("#para").innerText
 
     var blob = new Blob([textContent], { type: "text/plain" });
 
@@ -99,16 +142,30 @@ document.getElementById("downloadButton").addEventListener("click", function () 
 
     var downloadLink = document.createElement("a");
     downloadLink.href = blobUrl;
-    downloadLink.download = "Prime-number(s).txt";
+    downloadLink.download = `Primes Between ${startInput.value} and ${endInput.value}.txt`;
 
     document.body.appendChild(downloadLink);
     downloadLink.click();
 });
 
-// To Trigger Generate Button On Enter Keypress
 
-input.addEventListener("keypress", function (event) {
+
+// / Key Code for First Input Button to Shift Focus on Second Input
+
+input1.addEventListener("keydown", function (event) {
+    if (event.keyCode === 39 || event.keyCode === 40) {
+        input1.focus() === false
+        input2.focus() = true
+    }
+});
+
+// Key Code for Second Input Button to Target Generate Button
+
+input2.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
         document.getElementById("generatePrimes").click();
     }
 });
+
+
+
