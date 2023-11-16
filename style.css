@@ -98,7 +98,13 @@ body{
     width: 25rem;
 }
 
-#downloadButton{
+.batans{
+    display: flex;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+#downloadButton, #copyButton{
     border: 2px solid #bfb5b5;
     cursor: pointer;
     font-weight: 600;
@@ -108,10 +114,10 @@ body{
     border-radius: 2rem;
     background: transparent;
     backdrop-filter: blur(5px);
-    margin: 1.5rem 0;
+    /* margin: 1.5rem 0; */
     display: none;
 }
-#downloadButton:hover{
+#downloadButton:hover, #copyButton:hover{
     color: #fff;
     border: 2px solid #fff;
     background: none;
@@ -167,6 +173,9 @@ body{
         margin-top: 4rem;
         width: 90%;
         max-width: 95vw;
+    }
+    .batans{
+        flex-direction: column;
     }
 }
 
